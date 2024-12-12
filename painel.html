@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle Financeiro</title>
+    
+    <!-- Link para o CSS (certifique-se de que o arquivo styles.css esteja no diretório correto) -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Link para o Chart.js (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Painel de Controle Financeiro</h1>
+        
+        <!-- Formulário para adicionar transações -->
+        <div class="form-section">
+            <h2>Adicionar Transação</h2>
+            <form id="transactionForm">
+                <input type="date" id="transactionDate" required>
+                <input type="number" id="transactionAmount" placeholder="Valor" required>
+                <select id="transactionCategory">
+                    <option value="despesa">Despesa</option>
+                    <option value="renda">Renda</option>
+                </select>
+                <textarea id="transactionDescription" placeholder="Descrição (opcional)"></textarea>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- Resumo Financeiro -->
+        <div class="summary-section">
+            <h2>Resumo Financeiro</h2>
+            <div id="summaryDisplay">
+                <p>Rendas: R$ <span id="totalIncome">0.00</span></p>
+                <p>Despesas: R$ <span id="totalExpenses">0.00</span></p>
+                <p>Saldo: R$ <span id="balance">0.00</span></p>
+            </div>
+        </div>
+
+        <!-- Filtro de Transações -->
+        <div class="filter-section"> 
+            <h2>Filtrar Transações</h2>
+            <input type="date" id="filterDate" placeholder="Filtrar por data">
+            <select id="filterCategory">
+                <option value="all">Todas as Categorias</option>
+                <option value="despesa">Despesas</option>
+                <option value="renda">Rendas</option>
+            </select>
+            <button id="applyFilters">Aplicar Filtros</button>
+        </div>
+
+        <!-- Tabela de Transações -->
+        <div class="transactions-section">
+            <h2>Transações</h2>
+            <table id="transactionsTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionsBody">
+                    <!-- As transações serão inseridas aqui dinamicamente -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Gráficos Financeiros -->
+        <div class="charts-section">
+            <h2>Gráficos Financeiros</h2>
+            <canvas id="incomeExpensesChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Link para o arquivo JavaScript -->
+    <script src="Finan.js"></script>
+</body>
+</html>
